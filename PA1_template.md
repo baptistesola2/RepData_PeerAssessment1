@@ -29,11 +29,10 @@ library(ggplot2)
 ```
 
 ```r
-p1 <- ggplot(data  = StepDate, aes(x= date, y= steps))
-p1+ geom_bar(stat = "identity")
+hist(StepDate$steps)
 ```
 
-![](CourseAssignmet1_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 The mean number of step per day is 
 
@@ -65,7 +64,7 @@ p2 <- ggplot(data  = StepInterval, aes(x= interval, y= steps))
 p2+ geom_line (stat = "identity")
 ```
 
-![](CourseAssignmet1_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 The maximum average number of steps occurs at the inerval :
 
@@ -99,11 +98,10 @@ ActivityPlusIntervalMean [is.na(ActivityPlusIntervalMean$steps.x),]$steps.x <- A
 
 StepDateMV <- aggregate(steps.x ~ date, ActivityPlusIntervalMean, sum )
 
-p3 <- ggplot(data  = StepDateMV, aes(x= date, y= steps.x))
-p3+ geom_bar(stat = "identity")
+hist(StepDateMV$steps.x)
 ```
 
-![](CourseAssignmet1_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
 ```r
 mean(StepDateMV$steps.x, na.rm = TRUE)
@@ -137,6 +135,6 @@ p4 <- ggplot(data  = StepIntervalwk, aes(x= interval, y= steps.x))
 p4 + geom_line(stat = "identity")+ facet_grid(~wk)
 ```
 
-![](CourseAssignmet1_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 The main difference we observe is a pic of #steps around interval 800 on weekdays that is completely absent on weekends

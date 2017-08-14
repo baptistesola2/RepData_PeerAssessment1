@@ -26,8 +26,7 @@ Here is the histogram of the number of total steps per day
 ```{r}
 StepDate <- aggregate(steps ~ date, ActivityRawData, sum )
 library(ggplot2)
-p1 <- ggplot(data  = StepDate, aes(x= date, y= steps))
-p1+ geom_bar(stat = "identity")
+hist(StepDate$steps)
 ```
 
 The mean number of step per day is 
@@ -71,8 +70,8 @@ ActivityPlusIntervalMean [is.na(ActivityPlusIntervalMean$steps.x),]$steps.x <- A
 
 StepDateMV <- aggregate(steps.x ~ date, ActivityPlusIntervalMean, sum )
 
-p3 <- ggplot(data  = StepDateMV, aes(x= date, y= steps.x))
-p3+ geom_bar(stat = "identity")
+hist(StepDateMV$steps.x)
+
 mean(StepDateMV$steps.x, na.rm = TRUE)
 median(StepDateMV$steps.x, na.rm = TRUE)
 ```
